@@ -1,31 +1,57 @@
 import React from "react";
+import Advertisement from "./Advertisement";
 
-const AdCards = ({ image, title, description, contact, onDetailsClick }) => {
+const AdCards = () => {
+  const adList = [
+    {
+      title: "Olive Oil",
+      description: "🇵🇸 Rumi (PALESTINE) Extra Virgin Olive Oil",
+      contact: "Contact",
+      image: "ad1.png",
+    },
+    {
+      title: "Dried Za'atar Leaves (THYME)",
+      description: "Premium Palestinian Dried Za'atar Leaves (THYME)",
+      contact: "Contact",
+      image: "ad2.png",
+    },
+    {
+      title: "MAFTOUL",
+      description: "Palestinian GIANT COUSCOUS MAFTOUL",
+      image: "ad3.png",
+    },
+    {
+      title: "Nabulsi Soap",
+      description: "Palestinian Premium Nabulsi Soap",
+      contact: "Contact",
+      image: "ad4.png",
+    },
+    {
+      title: "Medjool Dates",
+      description: "Palestinian Medjool Dates ",
+      contact: "Contact",
+      image: "ad5.png",
+    },
+    {
+      title: "Green olives",
+      description: "340g Palestinian pickled green olives ",
+      contact: "Contact",
+      image: "ad6.png",
+    },
+  ];
 
   return (
-    <div className="adCard">
-      {image && (
-        <img
-          src={image}
-          style={{ width: "150px", height: "150px" }}
+    <>
+      {adList.map((ad) => (
+        <Advertisement
+          image={ad.image}
+          title={ad.title}
+          description={ad.description}
+          contact={ad.contact}
+          onDetailsClick={() => console.log("Details clicked")}
         />
-      )}
-
-      <h4>{title}</h4>
-      <p>{description}</p>
-      <p>Contact: {contact}</p>
-      <hr
-        className="text-dark"
-        style={{ border: "1px solid", margin: "10px 0" }}
-      />
-      <button className="btn btn-info" onClick={onDetailsClick}>
-        Details
-      </button>
-      <hr
-        className="text-dark"
-        style={{ border: "1px solid", margin: "10px 0" }}
-      />
-    </div>
+      ))}
+    </>
   );
 };
 
